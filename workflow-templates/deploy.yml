@@ -1,0 +1,13 @@
+on:
+  push:
+    tags:
+    - '*'
+
+jobs:
+  stage:
+    name: Deploy on STAGE version ${{ github.ref_name }}
+    environment: stage
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy ${{ github.ref_name }}
+      run: echo "helm upgrade"
